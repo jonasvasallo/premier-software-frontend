@@ -65,6 +65,7 @@ function Sales() {
             id: 0,
             purchaseDate: new Date().toISOString(),
             unitsSold: qty,
+            sellingPrice: itemsMap[item_id]?.price ?? 0,
             itemId: item_id,
         }
         
@@ -105,7 +106,6 @@ function Sales() {
                 <tbody>
                     {sales.map((sale) => {
                     const item = itemsMap[sale.itemId];
-                    const unitPrice = item?.price ?? "-";
 
                     return (
                     <tr
@@ -119,12 +119,12 @@ function Sales() {
                         </td>
 
                         <td className="p-4 text-xs text-gray-700 text-left">
-                        {typeof unitPrice === "number" && !isNaN(item?.price) ? formatCurrency(unitPrice) : `-`}
+                        {formatCurrency(sale.sellingPrice)}
                         </td>
 
                         <td className="p-4 text-xs text-gray-700 text-left">{sale.unitsSold}</td>
 
-                        <td className="p-4 text-xs text-gray-700 text-left">{typeof unitPrice === "number" && !isNaN(item?.price) ? formatCurrency(unitPrice) : `-`}</td>
+                        <td className="p-4 text-xs text-gray-700 text-left">{formatCurrency(sale.sellingPrice * sale.unitsSold)}</td>
 
                         <td className="p-4 text-xs text-gray-700 text-left">{formatDate(sale.purchaseDate)}</td>
                     </tr>

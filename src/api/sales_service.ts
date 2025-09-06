@@ -4,6 +4,7 @@ export type Sale = {
     id: number;
     purchaseDate: string;
     unitsSold: number;
+    sellingPrice: number;
     itemId: number;
 }
 
