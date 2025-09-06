@@ -1,8 +1,15 @@
-import type { SvgIconComponent } from '@mui/icons-material'
+import type {  SvgIconComponent } from '@mui/icons-material'
 
-function IconButton({Icon, onClick} :{Icon:SvgIconComponent, onClick?: () => void}) {
+type IconButtonProps = {
+    type?: "button" | "submit" | "reset",
+    onClick?: () => void,
+    Icon : SvgIconComponent,
+    buttonStyle?: string,
+}
+
+function IconButton({Icon, onClick, buttonStyle, type} : IconButtonProps) {
   return (
-    <button className='hover:bg-gray-200 rounded-full hover:cursor-pointer' onClick={onClick}>
+    <button type={type} className={`hover:bg-gray-200 rounded-full hover:cursor-pointer ${buttonStyle}`} onClick={onClick}>
         <Icon className='text-gray-400 text-2xl'/>
     </button>
   )

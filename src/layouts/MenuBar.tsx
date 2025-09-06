@@ -13,8 +13,10 @@ function MenuBar() {
             <IconButton Icon={NotificationsOutlined}/>
           </div>
           <div className='flex gap-4 items-center'>
-            <div className='w-9 h-9 rounded-full bg-gray-500'></div>
-            <span className='font-bold text-gray-700'>Jonas</span>
+            <div className='w-9 h-9 rounded-full bg-gray-500'>
+              <img src="/images/grad_pic.jpg" alt="" className='w-9 h-9 rounded-full object-cover object-top'/>
+            </div>
+            <span className='font-bold text-gray-700'>Jonas V.</span>
             <IconButton Icon={SettingsOutlined}/>
           </div>
         </div>
